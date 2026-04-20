@@ -18,23 +18,32 @@ import java.util.stream.IntStream;
 public class Main {
 
     void main() {
-        Scanner scanner = new Scanner(System.in);
-        IO.print("length Array: ");
-        int arrayLength = scanner.nextInt();
-        IO.println("max random number: ");
-        int max = scanner.nextInt();
-        int[] sortedIntArray = IntStream
-                .generate(() -> getRandomNumber(max))
-                .limit(arrayLength)
-                .sorted()
-                .toArray();
-        int keyPosition = Arrays.binarySearch(sortedIntArray, 500);
-        int splitPosition = (keyPosition >= 0) ? keyPosition : -(keyPosition + 1);
-        int[] left = Arrays.copyOfRange(sortedIntArray, 0, splitPosition);
-        int[] right = Arrays.copyOfRange(sortedIntArray, splitPosition, sortedIntArray.length);
-        IO.println("sortedIntArray: " + Arrays.toString(sortedIntArray));
-        IO.println("left: " + Arrays.toString(left));
-        IO.println("right: " + Arrays.toString(right));
+        try {
+            Scanner scanner = new Scanner(System.in);
+            IO.print("length Array: ");
+            int arrayLength = scanner.nextInt();
+            IO.println("max random number: ");
+            int max = scanner.nextInt();
+            int[] sortedIntArray = IntStream
+                    .generate(() -> getRandomNumber(max))
+                    .limit(arrayLength)
+                    .sorted()
+                    .toArray();
+            IO.println("number to split at: ");
+            int key = scanner.nextInt();
+            if (key > max) {
+                throw new Exception("number to split at is bigger than biggest possible number in array");
+            }
+            int keyPosition = Arrays.binarySearch(sortedIntArray, key);
+            int splitPosition = (keyPosition >= 0) ? keyPosition : -(keyPosition + 1);
+            int[] left = Arrays.copyOfRange(sortedIntArray, 0, splitPosition);
+            int[] right = Arrays.copyOfRange(sortedIntArray, splitPosition, sortedIntArray.length);
+            IO.println("sortedIntArray: " + Arrays.toString(sortedIntArray));
+            IO.println("left: " + Arrays.toString(left));
+            IO.println("right: " + Arrays.toString(right));
+        } catch (Exception e) {
+            IO.println(e);
+        }
     }
 
     private int getRandomNumber(int max) {
