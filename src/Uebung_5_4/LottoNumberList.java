@@ -29,7 +29,7 @@ public class LottoNumberList {
     }
 
     public List<Integer> drawAndSort(int n) {
-        List<Integer> subList = this.list.subList(0, n);
+        List<Integer> subList = new ArrayList<>(this.list.subList(0, n));
         Collections.sort(subList);
         return subList;
     }
