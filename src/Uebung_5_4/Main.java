@@ -20,7 +20,6 @@ import java.util.List;
 public class Main {
     void main() {
         List<Integer> list = drawFromList();
-        Collections.sort(list);
         IO.println(list);
 
     }
@@ -30,5 +29,6 @@ public class Main {
     }
 
     public static void drawFromSet() {
+
     }
 }
