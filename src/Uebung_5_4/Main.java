@@ -29,7 +29,7 @@ public class Main {
     }
 
     public static int getRandomNumber(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max);
+        return ThreadLocalRandom.current().nextInt(min, max+1);
     }
 
     public static List<Integer> drawFromList() {
