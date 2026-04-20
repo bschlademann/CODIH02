@@ -2,6 +2,8 @@ package Uebung_5_4;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.TreeSet;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Erstellen Sie ein Programm, das eine Ziehung der Lottozahlen simuliert.
@@ -20,7 +22,9 @@ import java.util.List;
 public class Main {
     void main() {
         List<Integer> list = drawFromList();
-        IO.println(list);
+        IO.println("list: " + list);
+        TreeSet<Integer> treeSet = drawFromSet();
+        IO.println("treeSet: " + treeSet);
 
     }
 
@@ -32,7 +36,13 @@ public class Main {
         return new LottoNumberList(49).shuffle(100).drawAndSort(6);
     }
 
-    public static void drawFromSet() {
-
+    public static TreeSet<Integer> drawFromSet() {
+        TreeSet<Integer> treeSet = new TreeSet<>();
+        for (int i = 0; i < 6; i++) {
+            treeSet.add(
+                    getRandomNumber(1, 49)
+            );
+        }
+        return treeSet;
     }
 }
