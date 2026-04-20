@@ -38,7 +38,7 @@ public class Main {
 
     public static TreeSet<Integer> drawFromSet() {
         TreeSet<Integer> treeSet = new TreeSet<>();
-        for (int i = 0; i < 6; i++) {
+        while (treeSet.size() < 6) {
             treeSet.add(
                     getRandomNumber(1, 49)
             );
