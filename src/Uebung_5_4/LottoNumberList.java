@@ -1,0 +1,31 @@
+package Uebung_5_4;
+
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+
+public class LottoNumberList {
+    private List<Integer> list;
+
+    public LottoNumberList(int max) {
+        this.list = new ArrayList<>();
+        for (int i = 1; i <= max; i++) {
+            list.add(i);
+        }
+    }
+
+    public LottoNumberList shuffle(int n) {
+        for (int i = 0; i < n; i++) {
+            int a = ThreadLocalRandom.current().nextInt(0, 49);
+            int b = ThreadLocalRandom.current().nextInt(0, 49);
+            Collections.swap(list, a, b);
+        }
+//        returns the whole object so the result can be method-chained to .draw()
+        return this;
+    }
+
+    public List<Integer> drawAndSort(int n) {
+        List<Integer> subList = this.list.subList(0, n);
+        Collections.sort(subList);
+        return subList;
+    }
+}
