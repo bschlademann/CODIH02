@@ -24,6 +24,10 @@ public class LottoNumberList {
         return this;
     }
 
+    private int getRandomNumber(int min, int max) {
+        return ThreadLocalRandom.current().nextInt(min, max);
+    }
+
     public List<Integer> drawAndSort(int n) {
         List<Integer> subList = this.list.subList(0, n);
         Collections.sort(subList);
