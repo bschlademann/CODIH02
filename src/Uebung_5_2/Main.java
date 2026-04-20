@@ -14,7 +14,6 @@ import java.util.Scanner;
  * Löschen Sie zum Schluss das Komma hinter dem letzten Namen
  * und geben Sie den String im String-Buffer auf der Konsole aus.
  */
-import java.util.Scanner;
 
 public class Main {
     void main() {
