@@ -15,17 +15,13 @@ public class LottoNumberList {
 
     public LottoNumberList shuffle(int n) {
         for (int i = 0; i < n; i++) {
-            int a = getRandomNumber(0, this.list.size());
-            int b = getRandomNumber(0, this.list.size());
+            int a = Main.getRandomNumber(0, this.list.size());
+            int b = Main.getRandomNumber(0, this.list.size());
 
             Collections.swap(list, a, b);
         }
 //        returns the whole object so the result can be method-chained to .draw()
         return this;
-    }
-
-    private int getRandomNumber(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max);
     }
 
     public List<Integer> drawAndSort(int n) {

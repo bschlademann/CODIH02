@@ -24,6 +24,10 @@ public class Main {
 
     }
 
+    public static int getRandomNumber(int min, int max) {
+        return ThreadLocalRandom.current().nextInt(min, max);
+    }
+
     public static List<Integer> drawFromList() {
         return new LottoNumberList(49).shuffle(100).drawAndSort(6);
     }
