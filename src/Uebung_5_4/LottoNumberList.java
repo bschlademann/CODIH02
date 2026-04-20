@@ -15,8 +15,9 @@ public class LottoNumberList {
 
     public LottoNumberList shuffle(int n) {
         for (int i = 0; i < n; i++) {
-            int a = ThreadLocalRandom.current().nextInt(0, 49);
-            int b = ThreadLocalRandom.current().nextInt(0, 49);
+            int a = getRandomNumber(0, this.list.size());
+            int b = getRandomNumber(0, this.list.size());
+
             Collections.swap(list, a, b);
         }
 //        returns the whole object so the result can be method-chained to .draw()
