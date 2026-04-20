@@ -11,6 +11,8 @@ public class Main {
         double y = scanner.nextDouble();
         IO.print("circle radius: ");
         double radius = scanner.nextDouble();
+        scanner.close();
+
         Circle circleCustom = new Circle(x, y, radius);
         Circle circleDefault = new Circle();
 

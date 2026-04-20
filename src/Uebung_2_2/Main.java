@@ -10,6 +10,7 @@ public class Main {
         IO.print("circle y: ");
         double inputY = scanner.nextDouble();
         Circle circle = createCircle(inputX, inputY);
+        scanner.close();
 
         Point center = circle.getCenter();
         double centerX = center.getX();

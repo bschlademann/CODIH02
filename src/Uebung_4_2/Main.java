@@ -38,6 +38,7 @@ public class Main {
         } catch (InputMismatchException e) {
             IO.println("input mismatch @n: expected int");
         }
+        scanner.close();
     }
 
     static class OverflowException extends Exception {

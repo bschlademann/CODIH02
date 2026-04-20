@@ -31,6 +31,7 @@ public class Main {
                     .toArray();
             IO.println("number to split at: ");
             int key = scanner.nextInt();
+            scanner.close();
             if (key > max) {
                 throw new Exception("number to split at is bigger than biggest possible number in array");
             }

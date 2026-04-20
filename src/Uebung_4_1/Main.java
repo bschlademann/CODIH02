@@ -37,6 +37,7 @@ public class Main {
                 IO.println('\'' + input + '\'' + " is not a valid integer");
             }
         }
+        scanner.close();
     }
 
     boolean runCondition(String input) {
