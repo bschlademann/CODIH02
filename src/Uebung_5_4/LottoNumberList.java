@@ -1,7 +1,6 @@
 package Uebung_5_4;
 
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class LottoNumberList {
     private List<Integer> list;

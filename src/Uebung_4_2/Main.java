@@ -47,7 +47,7 @@ public class Main {
         }
     }
 
-    public static long factorial(int n) throws OverflowException {
+    private static long factorial(int n) throws OverflowException {
 
         long result = 1;
         for (int i = 1; i <= n; i++) {
