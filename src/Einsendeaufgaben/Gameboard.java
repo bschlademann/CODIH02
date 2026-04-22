@@ -40,4 +40,9 @@ public class Gameboard {
         return board[rowIndex - 1][colIndex - 1];
     }
 
+    private void validateIndex(int index, int max, String name) throws GameException {
+        if (index < 1 || index > max) {
+            throw new GameException(String.format("invalid %s: %d (erlaubt: 1 bis %d)", name, index, max));
+        }
+    }
 }
