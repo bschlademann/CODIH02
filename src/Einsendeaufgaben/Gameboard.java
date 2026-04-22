@@ -34,5 +34,10 @@ public class Gameboard {
     public Gameboard() {
         this.board = new Token[ROWS][COLS];
     }
+    public Token getToken(int rowIndex, int colIndex) throws GameException {
+        validateIndex(rowIndex, ROWS, "row index");
+        validateIndex(colIndex, COLS, "column index");
+        return board[rowIndex - 1][colIndex - 1];
+    }
 
 }
