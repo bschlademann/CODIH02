@@ -38,7 +38,6 @@ public class Gameboard {
     public Token getToken(int rowIndex, int colIndex) throws GameException {
         int boardRowIndex = getBoardIndex(rowIndex, ROWS, "row index");
         int boardColIndex = getBoardIndex(colIndex, COLS, "column index");
-//        FIXME: getBoardIndex()
         return board[boardRowIndex][boardColIndex];
     }
 
@@ -47,5 +46,19 @@ public class Gameboard {
             throw new GameException(String.format("invalid %s: %d (erlaubt: 1 bis %d)", name, index, max));
         }
         return index - 1;
+    }
+
+    public void drop(int colIndex, Player player) throws GameException {
+        int boardColIndex = getBoardIndex(colIndex, COLS, "column index");
+        Token playerToken = player.getToken();
+        int bottomRow = ROWS - 1;
+        int topRow = 0;
+        for (int boardRowIndex = bottomRow; boardRowIndex >= topRow; boardRowIndex--) {
+            if (board[boardRowIndex][boardColIndex] == null) {
+                board[boardRowIndex][boardColIndex] = playerToken;
+                return;
+            }
+        }
+        throw new GameException("the column is full, choose another column");
     }
 }
