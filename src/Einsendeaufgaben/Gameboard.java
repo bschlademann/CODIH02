@@ -34,15 +34,18 @@ public class Gameboard {
     public Gameboard() {
         this.board = new Token[ROWS][COLS];
     }
+
     public Token getToken(int rowIndex, int colIndex) throws GameException {
-        validateIndex(rowIndex, ROWS, "row index");
-        validateIndex(colIndex, COLS, "column index");
-        return board[rowIndex - 1][colIndex - 1];
+        int boardRowIndex = getBoardIndex(rowIndex, ROWS, "row index");
+        int boardColIndex = getBoardIndex(colIndex, COLS, "column index");
+//        FIXME: getBoardIndex()
+        return board[boardRowIndex][boardColIndex];
     }
 
-    private void validateIndex(int index, int max, String name) throws GameException {
+    private int getBoardIndex(int index, int max, String name) throws GameException {
         if (index < 1 || index > max) {
             throw new GameException(String.format("invalid %s: %d (erlaubt: 1 bis %d)", name, index, max));
         }
+        return index - 1;
     }
 }
