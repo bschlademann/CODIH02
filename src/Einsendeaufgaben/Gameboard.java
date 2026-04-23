@@ -61,4 +61,80 @@ public class Gameboard {
         }
         throw new GameException("the column is full, choose another column");
     }
+
+    public boolean finished() {
+        int leftColumn = 0;
+        int rightColumn = COLS - 1;
+        int bottomRow = ROWS - 1;
+        int topRow = 0;
+
+        for (int colIndex = leftColumn; colIndex <= rightColumn; colIndex++) {
+            for (int rowIndex = bottomRow; rowIndex >= topRow; rowIndex--) {
+
+                Token current = board[rowIndex][colIndex];
+
+//                if cell is empty, a win condition from here is impossible
+                if (current == null) {
+                    break;
+                }
+
+                int currentColor = current.getColor();
+
+//                check all directions
+                if (checkRight(rowIndex, colIndex, currentColor, rightColumn)
+                        || checkUpwardsRight(rowIndex, colIndex, currentColor, rightColumn)
+                        || checkUpwards(rowIndex, colIndex, currentColor)
+                        || checkUpwardsLeft(rowIndex, colIndex, currentColor)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean checkTokenColor(int color, int rowIndex, int colIndex) {
+//        check if there is a token in this cell
+        if (board[rowIndex][colIndex] == null) {
+            return false;
+        }
+        int tokenColor = board[rowIndex][colIndex].getColor();
+//        does the tokenColor match the currentColor
+        return tokenColor == color;
+    }
+
+    private boolean checkRight(int rowIndex, int colIndex, int color, int rightColumn) {
+        if (colIndex <= rightColumn - 3) {
+            return checkTokenColor(color, rowIndex, colIndex + 1) &&
+                    checkTokenColor(color, rowIndex, colIndex + 2) &&
+                    checkTokenColor(color, rowIndex, colIndex + 3);
+        }
+        return false;
+    }
+
+    private boolean checkUpwardsRight(int rowIndex, int colIndex, int color, int rightColumn) {
+        if (rowIndex >= 3 && colIndex <= rightColumn - 3) {
+            return checkTokenColor(color, rowIndex - 1, colIndex + 1) &&
+                    checkTokenColor(color, rowIndex - 2, colIndex + 2) &&
+                    checkTokenColor(color, rowIndex - 3, colIndex + 3);
+        }
+        return false;
+    }
+
+    private boolean checkUpwards(int rowIndex, int colIndex, int color) {
+        if (rowIndex >= 3) {
+            return checkTokenColor(color, rowIndex - 1, colIndex) &&
+                    checkTokenColor(color, rowIndex - 2, colIndex) &&
+                    checkTokenColor(color, rowIndex - 3, colIndex);
+        }
+        return false;
+    }
+
+    private boolean checkUpwardsLeft(int rowIndex, int colIndex, int color) {
+        if (rowIndex >= 3 && colIndex >= 3) {
+            return checkTokenColor(color, rowIndex - 1, colIndex - 1) &&
+                    checkTokenColor(color, rowIndex - 2, colIndex - 2) &&
+                    checkTokenColor(color, rowIndex - 3, colIndex - 3);
+        }
+        return false;
+    }
 }
