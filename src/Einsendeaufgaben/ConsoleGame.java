@@ -1,5 +1,8 @@
 package Einsendeaufgaben;
 
+import static Einsendeaufgaben.Gameboard.COLS;
+import static Einsendeaufgaben.Gameboard.ROWS;
+
 /**
  * Die Klasse ConsoleGame wird von der Klasse Game abgeleitet.
  * Ergänzen Sie dort einen Konstruktor mit den gleichen Parametern wie beim Konstruktor der Oberklasse.
@@ -36,7 +39,32 @@ public class ConsoleGame extends Game {
 
     @Override
     void printBoard() throws GameException {
+        Gameboard board = this.board;
+        StringBuilder boardString = new StringBuilder();
 
+        for (int rowIndex = 0; rowIndex < ROWS; rowIndex++) {
+            boardString.append("\n");
+            for (int colIndex = 0; colIndex < COLS; colIndex++) {
+
+                String tokenSymbol = " ";
+                Token token = board.getToken(rowIndex, colIndex);
+                boolean hasToken = token != null;
+                if (hasToken) {
+                    switch (token.getColor()) {
+                        case Token.RED:
+                            tokenSymbol = "o";
+                            break;
+                        case Token.YELLOW:
+                            tokenSymbol = "x";
+                            break;
+                    }
+                }
+                boardString.append(String.format(" %s ", tokenSymbol));
+            }
+        }
+        printColumnNumbers();
+        IO.println(boardString);
+        printColumnNumbers();
     }
 
     @Override
@@ -45,5 +73,9 @@ public class ConsoleGame extends Game {
         IO.println(message);
     }
 
-
+    void printColumnNumbers() {
+        for (int colIndex = 1; colIndex <= COLS; colIndex++) {
+            IO.print(" " + colIndex + " ");
+        }
+    }
 }
