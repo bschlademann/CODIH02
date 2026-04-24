@@ -41,7 +41,8 @@ public class ConsoleGame extends Game {
 
     @Override
     void printWinner(Player player) {
-
+        String message = String.format("%s has won the game.", player);
+        IO.println(message);
     }
 
 
