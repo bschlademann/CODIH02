@@ -1,4 +1,4 @@
-package Einsendeaufgaben;
+package Einsendeaufgaben._1;
 
 /**
  * Die Klasse Token benötigt eine private Instanzvariable vom Typ int für die Farbe des Spielsteins.

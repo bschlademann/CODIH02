@@ -1,4 +1,4 @@
-package Einsendeaufgaben;
+package Einsendeaufgaben._1;
 
 public abstract class Game {
     protected Player[] players;

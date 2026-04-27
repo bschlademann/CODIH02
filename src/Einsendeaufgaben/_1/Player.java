@@ -1,4 +1,4 @@
-package Einsendeaufgaben;
+package Einsendeaufgaben._1;
 
 /**
  * Die Klasse Player benötigt zwei private Instanzvariablen,

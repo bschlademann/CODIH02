@@ -1,4 +1,4 @@
-package Einsendeaufgaben;
+package Einsendeaufgaben._1;
 
 /**
  * Die Klasse GameException wird von der API-Klasse Exception abgeleitet

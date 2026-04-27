@@ -1,9 +1,9 @@
-package Einsendeaufgaben;
+package Einsendeaufgaben._1;
 
 import java.util.Scanner;
 
-import static Einsendeaufgaben.Gameboard.COLS;
-import static Einsendeaufgaben.Gameboard.ROWS;
+import static Einsendeaufgaben._1.Gameboard.COLS;
+import static Einsendeaufgaben._1.Gameboard.ROWS;
 
 /**
  * Die Klasse ConsoleGame wird von der Klasse Game abgeleitet.

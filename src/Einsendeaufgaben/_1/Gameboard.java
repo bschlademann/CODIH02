@@ -1,4 +1,4 @@
-package Einsendeaufgaben;
+package Einsendeaufgaben._1;
 
 /**
  * Die Klasse GameBoard besitzt eine private Instanzvariable für ein zweidimensionales Feld vom Typ Token.
