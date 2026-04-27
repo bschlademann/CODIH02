@@ -8,6 +8,7 @@ public abstract class Game {
         this.players = new Player[2];
         players[0] = new Player(playerOne, new Token(1));
         players[1] = new Player(playerTwo, new Token(2));
+        this.board = new Gameboard();
     }
 
     abstract void play();
