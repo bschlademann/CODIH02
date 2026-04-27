@@ -12,9 +12,9 @@ public class Main {
     void main() {
 
         try (Scanner scanner = new Scanner(System.in);) {
-            IO.println("Name Player 1: ");
+            IO.print("Name Player 1: ");
             String playerOne = scanner.nextLine();
-            IO.println("Name Player 2: ");
+            IO.print("Name Player 2: ");
             String playerTwo = scanner.nextLine();
             ConsoleGame consoleGame = new ConsoleGame(playerOne, playerTwo);
             consoleGame.play();
