@@ -91,10 +91,10 @@ public class ConsoleGame extends Game {
                 if (hasToken) {
                     switch (token.getColor()) {
                         case Token.RED:
-                            tokenSymbol = "o";
+                            tokenSymbol = "x";
                             break;
                         case Token.YELLOW:
-                            tokenSymbol = "x";
+                            tokenSymbol = "o";
                             break;
                     }
                 }
