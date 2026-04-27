@@ -12,10 +12,11 @@ public class Main {
     void main() {
 
         try (Scanner scanner = new Scanner(System.in);) {
-            IO.print("Name Player 1 (playing X): ");
+            IO.print("Name Player 1 (playing \u001B[31mx\u001B[0m): ");
             String playerOne = scanner.nextLine();
-            IO.print("Name Player 2 (playing O): ");
+            IO.print("Name Player 2 (playing \u001B[33mo\u001B[0m): ");
             String playerTwo = scanner.nextLine();
+            IO.println("You can quit the game by entering \"quit\" in the column selection.");
             ConsoleGame consoleGame = new ConsoleGame(playerOne, playerTwo);
             consoleGame.play();
         } catch (Exception e) {
