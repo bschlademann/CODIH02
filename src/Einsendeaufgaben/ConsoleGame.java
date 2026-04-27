@@ -81,9 +81,9 @@ public class ConsoleGame extends Game {
         Gameboard board = this.board;
         StringBuilder boardString = new StringBuilder();
 
-        for (int rowIndex = 0; rowIndex < ROWS; rowIndex++) {
+        for (int rowIndex = 1; rowIndex <= ROWS; rowIndex++) {
             boardString.append("\n");
-            for (int colIndex = 0; colIndex < COLS; colIndex++) {
+            for (int colIndex = 1; colIndex <= COLS; colIndex++) {
 
                 String tokenSymbol = " ";
                 Token token = board.getToken(rowIndex, colIndex);
