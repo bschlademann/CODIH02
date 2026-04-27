@@ -47,19 +47,22 @@ public class ConsoleGame extends Game {
 
             while (!validTurn) {
                 try {
-                    IO.print(String.format("%s, enter column (1-%d): ", currentPlayer.getName(), COLS));
+                    IO.print(String.format("%s, enter column (1-%d)", currentPlayer.getName(), COLS));
 
-                    if (!scanner.hasNextInt()) {
-                        IO.println("Invalid input. Please enter a number.");
-                        scanner.next();
-                        continue;
+                    String input = scanner.next();
+
+                    if (input.equalsIgnoreCase("quit")) {
+                        IO.println("You quit the game.");
+                        return;
                     }
 
-                    int col = scanner.nextInt();
+                    int col = Integer.parseInt(input);
                     board.drop(col, currentPlayer);
                     printBoard();
 
                     validTurn = true;
+                } catch (NumberFormatException e) {
+                    IO.println("Invalid input. Please enter a number.");
                 } catch (GameException e) {
                     IO.println(e.getMessage());
                 }
@@ -91,10 +94,10 @@ public class ConsoleGame extends Game {
                 if (hasToken) {
                     switch (token.getColor()) {
                         case Token.RED:
-                            tokenSymbol = "x";
+                            tokenSymbol = "\u001B[31mx\u001B[0m";
                             break;
                         case Token.YELLOW:
-                            tokenSymbol = "o";
+                            tokenSymbol = "\u001B[33mo\u001B[0m";
                             break;
                     }
                 }
