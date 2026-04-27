@@ -14,13 +14,8 @@ public class Main {
 
     void main() {
         enqueueNumbers(10, 1, 100);
-
-        String packagePath = "src" + File.separator + "Einsendeaufgaben" + File.separator + "_2" + File.separator;
         String fileName = "queue_content.txt";
-
-        queue.write(packagePath + fileName);
-
-        IO.println("file was saved at: " + packagePath + fileName);
+        queue.write(fileName);
 
         IO.println("values in queue:");
         while (!queue.isEmpty()) {
