@@ -107,8 +107,11 @@ public class ConsoleGame extends Game {
     }
 
     @Override
-    void printWinner(Player player) {
-        String message = String.format("%s has won the game.", player);
+    void printWinner(Player winner) {
+        String message = "The game ended in a tie.";
+        if (winner != null) {
+            message = String.format("Player %s has won the game.", winner.getName());
+        }
         IO.println(message);
     }
 
