@@ -1,5 +1,7 @@
 package Einsendeaufgaben;
 
+import java.util.Scanner;
+
 import static Einsendeaufgaben.Gameboard.COLS;
 import static Einsendeaufgaben.Gameboard.ROWS;
 
@@ -34,7 +36,44 @@ public class ConsoleGame extends Game {
 
     @Override
     void play() {
+        int maxMoves = ROWS * COLS;
+        int currentMove = 0;
+        Player winner = null;
+        Scanner scanner = new Scanner(System.in);
 
+        while (currentMove < maxMoves) {
+            Player currentPlayer = players[currentMove % 2];
+            boolean validTurn = false;
+
+            while (!validTurn) {
+                try {
+                    IO.print(String.format("%s, enter column (1-%d): ", currentPlayer.getName(), COLS));
+
+                    if (!scanner.hasNextInt()) {
+                        IO.println("Invalid input. Please enter a number.");
+                        scanner.next();
+                        continue;
+                    }
+
+                    int col = scanner.nextInt();
+                    board.drop(col, currentPlayer);
+                    printBoard();
+
+                    validTurn = true;
+                } catch (GameException e) {
+                    IO.println(e.getMessage());
+                }
+            }
+
+            if (board.finished()) {
+                winner = currentPlayer;
+                break;
+            }
+
+            currentMove++;
+        }
+
+        printWinner(winner);
     }
 
     @Override
