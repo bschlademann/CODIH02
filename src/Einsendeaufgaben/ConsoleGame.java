@@ -101,9 +101,9 @@ public class ConsoleGame extends Game {
                 boardString.append(String.format(" %s ", tokenSymbol));
             }
         }
-        printColumnNumbers();
+        IO.print(getColumnNumbers());
         IO.println(boardString);
-        printColumnNumbers();
+        IO.println(getColumnNumbers());
     }
 
     @Override
@@ -115,9 +115,11 @@ public class ConsoleGame extends Game {
         IO.println(message);
     }
 
-    void printColumnNumbers() {
+    String getColumnNumbers() {
+        StringBuilder columnNumbers = new StringBuilder();
         for (int colIndex = 1; colIndex <= COLS; colIndex++) {
-            IO.print(" " + colIndex + " ");
+            columnNumbers.append(" ").append(colIndex).append(" ");
         }
+        return columnNumbers.toString();
     }
 }
